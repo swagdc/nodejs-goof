@@ -25,3 +25,11 @@ services:
       MYSQL_DATABASE: acme
     ports:
       - "3306:3306"
+  jenkins:
+    restart: on-failure:10
+    image: jenkins/jenkins:latest
+    container_name: my-jenkins
+    ports:
+      - 8099:8080
+    volumes:
+      - ~/apps/jenkins:/var/jenkins_home
